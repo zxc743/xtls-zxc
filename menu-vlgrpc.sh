@@ -149,7 +149,7 @@ read -p "Expired (days): " masaaktif
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#tls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/vlgrpc.json
-vlgrpclink1="vless://${uuid}@${domain}:443?mode=multi&security=tls&encryption=none&type=grpc&serviceName=vlgRPC&sni=bug.com#${user}"
+vlgrpclink1="vless://${uuid}@${domain}:443?mode=multi&security=tls&encryption=none&type=grpc&serviceName=vlgRPC&sni=ISI_BUG_DISINI#${user}"
 systemctl restart xray@vlgrpc
 clear
 echo -e ""
