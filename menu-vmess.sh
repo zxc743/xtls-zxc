@@ -157,22 +157,23 @@ cat>/etc/xray/$user-vmess.json<<EOF
       "net": "ws",
       "path": "/vmess",
       "type": "none",
-      "host": "",
+      "host": "ISI_BUG_DISINI",
       "tls": "tls"
+      "sni": "ISI_BUG_DISINI"
 }
 EOF
 none=`cat<<EOF
       {
       "v": "2",
       "ps": "${user}",
-      "add": "${domain}",
+      "add": "ISI_BUG_DISINI",
       "port": "80",
       "id": "${uuid}",
       "aid": "2",
       "net": "ws",
       "path": "/vmess",
       "type": "none",
-      "host": "",
+      "host": "${domain}",
       "tls": "none"
 }
 EOF`
