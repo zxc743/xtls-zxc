@@ -15,7 +15,7 @@ exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#tls$/a\### '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/trojan.json
 systemctl restart xray@trojan
-trojanlink="trojan://${uuid}@${domain}:443#$user"
+trojanlink="trojan://${uuid}@${domain}:443?sni=ISI_BUG_DISINI#$user"
 clear
 echo -e ""
 echo -e "==========-XRAY/Trojan-=========="
