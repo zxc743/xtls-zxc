@@ -13,9 +13,9 @@ uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (days): " masaaktif
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#tls$/a\### '"$user $exp"'\
-},{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/trojan.json
+},{"password": "'""$uuid""'","flow": "xtls-rprx-origin","email": "'""$user""'"' /etc/xray/trojan.json
 systemctl restart xray@trojan
-trojanlink="trojan://${uuid}@${domain}:443?sni=ISI_BUG_DISINI#$user"
+trojanlink="trojan://${uuid}@${domain}:443?sni=ISI_BUG_DISINI&security=xtls&flow=xtls-rprx-origin#$user"
 clear
 echo -e ""
 echo -e "==========-XRAY/Trojan-=========="
@@ -23,6 +23,7 @@ echo -e "Remarks        : ${user}"
 echo -e "Host/IP        : ${domain}"
 echo -e "port           : 443"
 echo -e "Key            : ${uuid}"
+echo -e "Security       : xtls-rprx-origin"
 echo -e "link           : ${trojanlink}"
 echo -e "================================="
 echo -e "Expired On     : $exp"
