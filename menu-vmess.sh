@@ -145,7 +145,7 @@ uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (days): " masaaktif
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#tls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"2"',"email": "'""$user""'"' /etc/xray/vmess.json
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/vmess.json
 cat>/etc/xray/$user-vmess.json<<EOF
       {
       "v": "2",
@@ -153,11 +153,11 @@ cat>/etc/xray/$user-vmess.json<<EOF
       "add": "${domain}",
       "port": "443",
       "id": "${uuid}",
-      "aid": "2",
+      "aid": "0",
       "net": "ws",
       "path": "/vmess",
       "type": "none",
-      "host": "ISI_BUG_DISINI",
+      "host": "bug.com",
       "tls": "tls"
 }
 EOF
@@ -168,7 +168,7 @@ none=`cat<<EOF
       "add": "${domain}ISI_BUG_DISINI",
       "port": "80",
       "id": "${uuid}",
-      "aid": "2",
+      "aid": "0",
       "net": "ws",
       "path": "/vmess",
       "type": "none",
@@ -190,7 +190,7 @@ echo -e "Domain         : ${domain}"
 echo -e "port TLS       : 443"
 echo -e "port none TLS  : 80"
 echo -e "id             : ${uuid}"
-echo -e "alterId        : 2"
+echo -e "alterId        : 0"
 echo -e "Security       : auto"
 echo -e "network        : ws"
 echo -e "path           : /vmess"
