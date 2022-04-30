@@ -165,7 +165,7 @@ none=`cat<<EOF
       {
       "v": "2",
       "ps": "${user}",
-      "add": "${domain}ISI_BUG_DISINI",
+      "add": "bug.com",
       "port": "80",
       "id": "${uuid}",
       "aid": "0",
