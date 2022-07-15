@@ -134,6 +134,7 @@ sed -i '/#tls$/a\### '"$user $exp"'\
 },{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/trojanws.json
 systemctl restart xray@trojanws
 trojanlink="trojan-go://${uuid}@ISI_BUG_DISINI:443/?sni=${domain}&type=ws&host=${domain}&path=/Trojan-go&encryption=none#${user}"
+trojanlink2="trojan://${uuid}@ISI_BUG_DISINI:443?path=%2FTrojan-go&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
 clear
 echo -e ""
 echo -e "==========-XRAY/TrojanGO=========="
@@ -143,6 +144,7 @@ echo -e "port           : 443"
 echo -e "Key            : ${uuid}"
 echo -e "Path           : /Trojan-go"
 echo -e "link           : ${trojanlink}"
+echo -e "link V2rayNG   : ${trojanlink2}"
 echo -e "================================="
 echo -e "Expired On     : $exp"
 echo ""
